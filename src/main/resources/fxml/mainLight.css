@@ -1,0 +1,50 @@
+.primary-color {
+    -fx-background-color: #FFFFFF;
+}
+
+.secondary-color {
+    -fx-background-color: #E7E7E7;
+}
+
+.switch-theme {
+    -fx-background-radius: 100;
+    -fx-background-color: #383838;
+}
+
+.switch-theme:hover {
+    -fx-background-color: #595959;
+}
+
+.switch-theme:pressed {
+    -fx-background-color: #808080;
+}
+
+.main-scene {
+    -fx-background-color: #FFFFFF;
+}
+
+.main-pane {
+    -fx-border-color: #b3b3b3;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+}
+
+.text {
+    -fx-text-fill: #393939;
+}
+
+.btn-pane {
+    -fx-text-fill: white;
+    -fx-background-color: #78c2ad;
+    -fx-background-radius: 5;
+    -fx-pref-height: 32px;
+}
+
+.btn-pane:hover {
+    -fx-background-color: #88cab7;
+}
+
+.btn-pane:pressed {
+    -fx-background-color: #93d1bf;
+}

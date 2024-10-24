@@ -1,0 +1,51 @@
+.primary-color {
+    -fx-background-color: #383838;
+}
+
+.secondary-color {
+    -fx-background-color: #282828;
+}
+
+.switch-theme {
+    -fx-background-radius: 100;
+    -fx-background-color: #383838;
+}
+
+.switch-theme:hover {
+    -fx-background-color: #595959;
+}
+
+.switch-theme:pressed {
+    -fx-background-color: #808080;
+}
+
+.main-scene {
+    -fx-background-color: #383838;
+}
+
+.main-pane {
+    -fx-border-color: #b3b3b3;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+}
+
+.text {
+    -fx-text-fill: white;
+}
+
+
+.btn-pane {
+    -fx-text-fill: white;
+    -fx-background-color: #375a7f;
+    -fx-background-radius: 5;
+    -fx-pref-height: 32px;
+}
+
+.btn-pane:hover {
+    -fx-background-color: #304f70;
+}
+
+.btn-pane:pressed {
+    -fx-background-color: #335375;
+}
