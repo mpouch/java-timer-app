@@ -32,6 +32,5 @@ public class ThemeHandler {
         parent.getStylesheets().add("fxml/mainDark.css");
         Image image = new Image("img/light_mode.png");
         iconTheme.setImage(image);
-    }
-    
+    }    
 }
