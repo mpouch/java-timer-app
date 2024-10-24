@@ -42,10 +42,9 @@ public class MainController {
     @FXML
     private AnchorPane parent;
     
-    // Handlers    
-    private ThemeHandler themeHandler = new ThemeHandler();
+    // Handlers
     
     public void switchTheme(ActionEvent event) {
-        themeHandler.switchTheme(parent, iconTheme);
+        ThemeHandler.switchTheme(parent, iconTheme);
     }
 }

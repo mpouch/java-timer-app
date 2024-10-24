@@ -7,9 +7,9 @@ import javafx.scene.layout.AnchorPane;
 
 public class ThemeHandler {
     
-    private boolean isDarkTheme = true;
+    private static boolean isDarkTheme = true;
     
-    public void switchTheme(AnchorPane parent, ImageView iconTheme) {
+    public static void switchTheme(AnchorPane parent, ImageView iconTheme) {
         
         if (isDarkTheme) {
             setLightTheme(parent, iconTheme);
@@ -20,14 +20,14 @@ public class ThemeHandler {
         isDarkTheme = !isDarkTheme;
     }
     
-    private void setLightTheme(AnchorPane parent, ImageView iconTheme) {
+    private static void setLightTheme(AnchorPane parent, ImageView iconTheme) {
         parent.getStylesheets().remove("fxml/mainDark.css");
         parent.getStylesheets().add("fxml/mainLight.css");
         Image image = new Image("img/dark_mode.png");
         iconTheme.setImage(image);
     }
     
-    private void setDarkTheme(AnchorPane parent, ImageView iconTheme) {
+    private static void setDarkTheme(AnchorPane parent, ImageView iconTheme) {
         parent.getStylesheets().remove("fxml/mainLight.css");
         parent.getStylesheets().add("fxml/mainDark.css");
         Image image = new Image("img/light_mode.png");
