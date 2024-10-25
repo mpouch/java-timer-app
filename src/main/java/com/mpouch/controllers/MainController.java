@@ -49,6 +49,16 @@ public class MainController {
     }
     
     public void handleTime(ActionEvent event) {
-        TimerHandler.handleTime(event);
+        TimerHandler.handleTime(
+            event,
+            lblTimer,
+            btnPomodoro,
+            btnShortBreak,
+            btnLongBreak,
+            btnCustomTimer,
+            btnStart,
+            btnPause,
+            btnReset
+        );
     }
 }
