@@ -1,8 +1,11 @@
 package com.mpouch.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 public class TimerHandler {
     
@@ -15,6 +18,9 @@ public class TimerHandler {
     // Used by the Reset button to restore values to previous state
     private static int minFixed = min;
     private static int secFixed = sec;
+    
+    // Timeline
+    private static Timeline timeline;
     
     public static void handleTime(
         ActionEvent event,
@@ -48,13 +54,13 @@ public class TimerHandler {
                     
                 // Timer controls
                 case "Start":
-                    startTimer();
+                    startTimer(label, btnStart);
                     break;
                 case "Pause":
-                    pauseTimer();
+                    pauseTimer(btnStart);
                     break;
                 case "Reset":
-                    resetTimer();
+                    resetTimer(label, btnStart);
                     break;
             }
         }
@@ -162,19 +168,49 @@ public class TimerHandler {
     
     // Start, pause or reset timer
     
-    private static void startTimer() {
-        //
+    private static void startTimer(Label label, Button btnStart) {
+        isRunning = true;
+        btnStart.setDisable(true);
+        
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer(label)));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
     
-    private static void pauseTimer() {
-        //
+    private static void pauseTimer(Button btnStart) {
+        if (timeline != null) {
+            timeline.pause();
+            isRunning = false;
+            btnStart.setDisable(false);
+        }
     }
     
-    private static void resetTimer() {
-        //
+    private static void resetTimer(Label label, Button btnStart) {
+        if (timeline != null) {
+            timeline.stop();
+            btnStart.setDisable(false);
+        }
+        
+        isRunning = false;
+        min = minFixed;
+        sec = secFixed;
+        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
     }
     
-    private static void updateTimer() {
-        //
+    private static void updateTimer(Label label) {
+        if (isRunning) {
+            if (min == 0 && sec == 0) {
+                label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+                isRunning = false;
+                timeline.stop();
+            } else if (sec == 0) {
+                label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+                min -= 1;
+                sec = 59;
+            } else {
+                label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+                sec -= 1;
+            }
+        }
     }
 }
