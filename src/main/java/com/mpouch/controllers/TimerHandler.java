@@ -173,4 +173,8 @@ public class TimerHandler {
     private static void resetTimer() {
         //
     }
+    
+    private static void updateTimer() {
+        //
+    }
 }
