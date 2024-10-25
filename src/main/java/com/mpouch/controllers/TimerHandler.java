@@ -40,10 +40,10 @@ public class TimerHandler {
                     setShortBreak(label, btnPomodoro, btnShortBreak, btnLongBreak, btnCustomTimer, btnStart);
                     break;
                 case "Long Break":
-                    setLongBreak();
+                    setLongBreak(label, btnPomodoro, btnShortBreak, btnLongBreak, btnCustomTimer, btnStart);
                     break;
                 case "Custom Timer":
-                    setCustomTimer();
+                    setCustomTimer(label, btnPomodoro, btnShortBreak, btnLongBreak, btnCustomTimer, btnStart);
                     break;
                     
                 // Timer controls
@@ -71,7 +71,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Set running state and timer values
+        // Stop timer and set timer values
         isRunning = false;
         min = 25;
         sec = 0;
@@ -95,7 +95,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Set running state and timer values
+        // Stop timer and set timer values
         isRunning = false;
         min = 5;
         sec = 0;
@@ -111,12 +111,52 @@ public class TimerHandler {
         btnStart.setDisable(false);
     }
     
-    private static void setLongBreak() {
-        //
+    private static void setLongBreak(
+        Label label,
+        Button btnPomodoro,
+        Button btnShortBreak,
+        Button btnLongBreak,
+        Button btnCustomTimer,
+        Button btnStart) {
+        
+        // Stop timer and set timer values
+        isRunning = false;
+        min = 15;
+        sec = 0;
+        minFixed = 15;
+        secFixed = 0;
+        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        
+        // Disable pressed button and enable previously pressed ones
+        btnPomodoro.setDisable(false);
+        btnShortBreak.setDisable(false);
+        btnLongBreak.setDisable(true);
+        btnCustomTimer.setDisable(false);
+        btnStart.setDisable(false);
     }
     
-    private static void setCustomTimer() {
-        //
+    private static void setCustomTimer(
+        Label label,
+        Button btnPomodoro,
+        Button btnShortBreak,
+        Button btnLongBreak,
+        Button btnCustomTimer,
+        Button btnStart) {
+        
+        // Stop timer and set timer values
+        isRunning = false;
+        min = 20;
+        sec = 0;
+        minFixed = 20;
+        secFixed = 0;
+        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        
+        // Disable pressed button and enable previously pressed ones
+        btnPomodoro.setDisable(false);
+        btnShortBreak.setDisable(false);
+        btnLongBreak.setDisable(false);
+        btnCustomTimer.setDisable(true);
+        btnStart.setDisable(false);
     }
     
     
