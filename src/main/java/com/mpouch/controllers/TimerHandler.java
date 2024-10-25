@@ -172,8 +172,11 @@ public class TimerHandler {
         isRunning = true;
         btnStart.setDisable(true);
         
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer(label)));
-        timeline.setCycleCount(Timeline.INDEFINITE);
+        if (timeline == null) {
+            timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer(label)));
+            timeline.setCycleCount(Timeline.INDEFINITE);
+        }
+        
         timeline.play();
     }
     
