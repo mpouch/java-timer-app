@@ -47,4 +47,8 @@ public class MainController {
     public void switchTheme(ActionEvent event) {
         ThemeHandler.switchTheme(parent, iconTheme);
     }
+    
+    public void handleTime(ActionEvent event) {
+        TimerHandler.handleTime(event);
+    }
 }
