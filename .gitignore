@@ -52,3 +52,7 @@ Thumbs.db
 *.user
 *.sublime-workspace
 *.sublime-project
+
+## Docker
+Dockerfile
+docker-compose.yml
