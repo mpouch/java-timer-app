@@ -66,8 +66,17 @@ public class TimerHandler {
         }
     }
     
-    
     // Set value for timer
+    
+    // Stop timer and set timer values
+    private static void setTime(Label label, int minInput, int secInput) {
+        isRunning = false;
+        min = minInput;
+        sec = secInput;
+        minFixed = 25;
+        secFixed = 0;
+        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+    }
     
     private static void setPomodoro(
         Label label,
@@ -77,13 +86,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Stop timer and set timer values
-        isRunning = false;
-        min = 25;
-        sec = 0;
-        minFixed = 25;
-        secFixed = 0;
-        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        setTime(label, 25, 0);
         
         // Disable pressed button and enable previously pressed ones
         btnPomodoro.setDisable(true);
@@ -101,13 +104,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Stop timer and set timer values
-        isRunning = false;
-        min = 5;
-        sec = 0;
-        minFixed = 5;
-        secFixed = 0;
-        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        setTime(label, 5, 0);
         
         // Disable pressed button and enable previously pressed ones
         btnPomodoro.setDisable(false);
@@ -125,13 +122,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Stop timer and set timer values
-        isRunning = false;
-        min = 15;
-        sec = 0;
-        minFixed = 15;
-        secFixed = 0;
-        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        setTime(label, 15, 0);
         
         // Disable pressed button and enable previously pressed ones
         btnPomodoro.setDisable(false);
@@ -149,13 +140,7 @@ public class TimerHandler {
         Button btnCustomTimer,
         Button btnStart) {
         
-        // Stop timer and set timer values
-        isRunning = false;
-        min = 20;
-        sec = 0;
-        minFixed = 20;
-        secFixed = 0;
-        label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
+        setTime(label, 35, 0);
         
         // Disable pressed button and enable previously pressed ones
         btnPomodoro.setDisable(false);
