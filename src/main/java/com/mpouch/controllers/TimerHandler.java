@@ -71,10 +71,8 @@ public class TimerHandler {
     // Stop timer and set timer values
     private static void setTime(Label label, int minInput, int secInput) {
         isRunning = false;
-        min = minInput;
-        sec = secInput;
-        minFixed = 25;
-        secFixed = 0;
+        minFixed = min = minInput;
+        secFixed = sec = secInput;
         label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
     }
     
