@@ -157,6 +157,11 @@ public class TimerHandler {
         isRunning = true;
         btnStart.setDisable(true);
         
+        // Timer start immediately if stopped or reset
+        if (min == minFixed) {
+            updateTimer(label);
+        }
+        
         if (timeline == null) {
             timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer(label)));
             timeline.setCycleCount(Timeline.INDEFINITE);
@@ -176,10 +181,10 @@ public class TimerHandler {
     private static void resetTimer(Label label, Button btnStart) {
         if (timeline != null) {
             timeline.stop();
+            isRunning = false;            
             btnStart.setDisable(false);
         }
         
-        isRunning = false;
         min = minFixed;
         sec = secFixed;
         label.setText(String.format("%02d", min) + ":" + String.format("%02d", sec));
