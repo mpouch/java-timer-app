@@ -12,7 +12,7 @@
 
 <!--        xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.Main"-->
 
-<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" stylesheets="@mainDark.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mpouch.controllers.MainController">
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" stylesheets="@mainDark.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mpouch.controllers.CustomTimerController">
    <children>
       <BorderPane prefHeight="220.0" prefWidth="320.0" styleClass="main-scene" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -60,7 +60,7 @@
                               <Insets bottom="10.0" />
                            </padding>
                         </Label>
-                        <Button fx:id="btnConfirm" mnemonicParsing="false" styleClass="btn-pane" text="Confirm" />
+                        <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#customTimer" styleClass="btn-pane" text="Confirm" />
                      </children>
                   </VBox>
                </children>

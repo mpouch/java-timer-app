@@ -1,5 +1,6 @@
 package com.mpouch.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,4 +24,13 @@ public class CustomTimerController {
     @FXML
     private AnchorPane parent;
     
+    public void customTimer(ActionEvent event) {
+        CustomTimeHandler.handleCustomTimer(
+            event,
+            btnConfirm,
+            inpMin,
+            inpSec,
+            lblError
+        );
+    }
 }

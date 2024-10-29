@@ -80,7 +80,7 @@
                                     <Insets left="10.0" right="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="btnCustomTimer" mnemonicParsing="false" onAction="#handleTime" styleClass="btn-pane" text="Custom Timer">
+                              <Button fx:id="btnCustomTimer" mnemonicParsing="false" onAction="#openCustomTimer" styleClass="btn-pane" text="Custom Timer">
                                  <HBox.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </HBox.margin>

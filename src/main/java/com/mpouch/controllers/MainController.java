@@ -1,11 +1,16 @@
 package com.mpouch.controllers;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class MainController {
 
@@ -49,8 +54,7 @@ public class MainController {
     }
     
     public void handleTime(ActionEvent event) {
-        TimerHandler.handleTime(
-            event,
+        TimerHandler.sendParentValues(
             lblTimer,
             btnPomodoro,
             btnShortBreak,
@@ -58,7 +62,30 @@ public class MainController {
             btnCustomTimer,
             btnStart,
             btnPause,
-            btnReset
-        );
+            btnReset);
+        
+        TimerHandler.handleTime(event);
+    }
+    
+    public void openCustomTimer(ActionEvent event) {
+        TimerHandler.sendParentValues(
+            lblTimer,
+            btnPomodoro,
+            btnShortBreak,
+            btnLongBreak,
+            btnCustomTimer,
+            btnStart,
+            btnPause,
+            btnReset);
+        
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/customTimer.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Custom Timer");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
