@@ -82,13 +82,13 @@ public class TimerHandler {
                     
                 // Timer controls
                 case "Start":
-                    startTimer(timerLabel, startButton);
+                    startTimer(timerLabel);
                     break;
                 case "Pause":
-                    pauseTimer(startButton);
+                    pauseTimer();
                     break;
                 case "Reset":
-                    resetTimer(timerLabel, startButton);
+                    resetTimer(timerLabel);
                     break;
             }
         }
@@ -150,9 +150,11 @@ public class TimerHandler {
     
     // Start, pause or reset timer
     
-    private static void startTimer(Label label, Button btnStart) {
+    private static void startTimer(Label label) {
         isRunning = true;
-        btnStart.setDisable(true);
+        startButton.setDisable(true);
+        pauseButton.setDisable(false);
+        resetButton.setDisable(false);
         
         // Timer start immediately if stopped or reset
         if (min == minFixed) {
@@ -167,19 +169,23 @@ public class TimerHandler {
         timeline.play();
     }
     
-    private static void pauseTimer(Button btnStart) {
+    private static void pauseTimer() {
         if (timeline != null) {
             timeline.pause();
             isRunning = false;
-            btnStart.setDisable(false);
+            startButton.setDisable(false);
+            pauseButton.setDisable(true);
+            resetButton.setDisable(false);
         }
     }
     
-    private static void resetTimer(Label label, Button btnStart) {
+    private static void resetTimer(Label label) {
         if (timeline != null) {
             timeline.stop();
-            isRunning = false;            
-            btnStart.setDisable(false);
+            isRunning = false;
+            startButton.setDisable(false);
+            pauseButton.setDisable(true);
+            resetButton.setDisable(true);
         }
         
         min = minFixed;
