@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/main.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Java Timer App");
+        stage.setTitle("TimerFX");
 
         stage.setScene(scene);
         stage.show();
