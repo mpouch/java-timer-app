@@ -31,7 +31,7 @@ public class CustomTimeHandler {
                 int minutes = Integer.parseInt(minText);
                 int seconds = Integer.parseInt(secText);
                 
-                if (minutes > 60 || minutes <= 0 || seconds > 60 || seconds <= 0) {
+                if (minutes >= 60 || minutes <= 0 || seconds >= 60 || seconds <= 0) {
                     lblError.setText("Enter values between 0 and 60");
                     lblError.setVisible(true);
                 } else {
