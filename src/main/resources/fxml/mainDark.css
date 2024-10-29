@@ -49,3 +49,8 @@
 .btn-pane:pressed {
     -fx-background-color: #335375;
 }
+
+.input-pane {
+    -fx-background-color: #575757;
+    -fx-text-fill: white;
+}
