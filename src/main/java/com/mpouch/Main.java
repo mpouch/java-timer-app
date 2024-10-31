@@ -10,6 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        // Loads the UI and creates the main window
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/main.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("TimerFX");

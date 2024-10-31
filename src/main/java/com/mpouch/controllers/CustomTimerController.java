@@ -24,6 +24,7 @@ public class CustomTimerController {
     @FXML
     private AnchorPane parent;
     
+    // Passes references of UI components to the Custom Timer Handler
     public void customTimer(ActionEvent event) {
         CustomTimeHandler.handleCustomTimer(
             event,

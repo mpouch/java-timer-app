@@ -49,11 +49,17 @@ public class MainController {
     
     // Handlers
     
+    // Called when the theme button is pressed
     public void switchTheme(ActionEvent event) {
         ThemeHandler.switchTheme(parent, iconTheme);
     }
     
+    // Called when a timer-related button is pressed
+    // Pomodoro, Short Break, Long Break, Start, Pause, Reset
     public void handleTime(ActionEvent event) {
+        
+        // Passes references to UI elements from MainController to TimerHandler,
+        // allowing TimerHandler to manipulate these elements directly
         TimerHandler.sendParentValues(
             lblTimer,
             btnPomodoro,
@@ -64,9 +70,12 @@ public class MainController {
             btnPause,
             btnReset);
         
+        // Handles the specific timer button action based on the event triggered
         TimerHandler.handleTime(event);
     }
     
+    // Opens a new window to set a custom timer and sends references
+    // to timer UI elements to the TimerHandler
     public void openCustomTimer(ActionEvent event) {
         TimerHandler.sendParentValues(
             lblTimer,
@@ -79,6 +88,7 @@ public class MainController {
             btnReset);
         
         try {
+            // Load Custom Timer UI and creates the window
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/customTimer.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

@@ -31,19 +31,22 @@ public class CustomTimeHandler {
                 int minutes = Integer.parseInt(minText);
                 int seconds = Integer.parseInt(secText);
                 
+                // Validate that input values are within the acceptable range
                 if (minutes >= 60 || minutes <= 0 || seconds >= 60 || seconds <= 0) {
-                    lblError.setText("Enter values between 0 and 60");
-                    lblError.setVisible(true);
+                    lblError.setText("Enter values between 0 and 60"); // Show range error
+                    lblError.setVisible(true); // Show error label
                 } else {
                     TimerHandler.setCustomTimer(minutes, seconds);
-                    lblError.setVisible(false);
+                    lblError.setVisible(false); // Hide error label
                     
+                    // Close the timer window
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.close();
                 }
             } catch (NumberFormatException e) {
+                // Handles case where input values are not numeric
                 lblError.setText("Enter numeric values");
-                lblError.setVisible(true);
+                lblError.setVisible(true); // Show error label
             }
         }
     }
